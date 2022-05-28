@@ -1,16 +1,24 @@
 class Solution {
-    public void moveZeroes(int[] nums)
-    {
-      int count = 0;
-      for(int i=0;i<nums.length;i++)
-      {
-        if(nums[i]!=0)
+    public int maxProfit(int[] prices) {
+        
+        int max = Integer.MAX_VALUE;
+        int op=0;
+        int pist=0;
+        
+        for(int i=0;i<prices.length;i++)
         {
-          int x= nums[i];
-          nums[i]=nums[count];
-          nums[count]=x;
-          count++;
+            if(prices[i]<max)
+            {
+                max=prices[i];
+            }
+            
+            pist =prices[i]-max;
+            if(op<pist)
+            {
+                op=pist;
+            }
         }
-      }
+        return op;
     }
-    }
+}
+
